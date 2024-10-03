@@ -12,6 +12,9 @@ client_SOURCES = \
 		debug.h \
 		aes.h \
 		aes.c \
+		md5-buildin/md5_one.c \
+		md5-buildin/md5_dgst.c \
+		md5-buildin/mem_clr.c \
 		h3c_AES_MD5.h \
 		h3c_AES_MD5.c \
 		h3c_dict.h \
