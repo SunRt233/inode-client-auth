@@ -1,4 +1,4 @@
-AC_INIT([njit8021xclient],[1.0],[njit8021xclient@googlegroups.com],[],[https://github.com/liuqun/njit8021xclient])
+AC_INIT([inode-client-auth],[0.1.0])
 
 AC_MSG_CHECKING([program prefix for $PACKAGE_NAME]);
 if test "x$program_prefix" = "x" || test $program_prefix = "NONE" ; then
