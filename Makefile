@@ -44,7 +44,7 @@ define Package/inode-client-auth
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=iNode 802.1X client
-	PKG_BUILD_DEPENDS:=+libpcap +libopenssl
+	PKG_BUILD_DEPENDS:=+libpcap +libopenssl3
 endef
 
 
@@ -64,7 +64,12 @@ endef
 # much easier to do it this way.
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) ./inode-client-auth/* $(PKG_BUILD_DIR)/
+	date "+[%Y-%m-%d %H:%M:%S]" >> /root/dump.log
+	echo ${PWD} >> /root/dump.log
+	echo ${TOPDIR} >> /root/dump.log
+	echo `ls ${TOPDIR}/package/inode-client-auth/` >> /root/dump.log
+
+	$(CP) ${TOPDIR}/package/inode-client-auth/* $(PKG_BUILD_DIR)/
 endef
 
 
@@ -89,8 +94,11 @@ endef
 # command to copy the binary file from its current location (in our case the build
 # directory) to the install directory.
 define Package/inode-client-auth/install
+	echo $(INSTALL_DIR) >> /root/dump.log
+	echo $(INSTALL_DIR) >> /root/dump.log
+	echo $(PKG_BUILD_DIR) >> /root/dump.log
 	$(INSTALL_DIR) $(1)/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/inode-client-auth $(1)/bin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/client $(1)/bin/inode-client-auth
 endef
 
 
